@@ -1,5 +1,39 @@
-## Test Game for java study
-Based on RealTutsGML's "Java Programming: Let's Build a Game" tutorial
+## TEST GAME
+자바를 공부하며 만들어보고있는 간단한 게임
 
-## Tutorial Video Link
-[ Youtube Playlist ](https://www.youtube.com/watch?v=1gir2R7G9ws&list=PLWms45O3n--6TvZmtFHaCWRZwEqnz2MHa)
+## Reference Video Link
+Based on RealTutsGML's "Java Programming: Let's Build a Game" tutorial
+**[ Youtube Playlist ](https://www.youtube.com/watch?v=1gir2R7G9ws&list=PLWms45O3n--6TvZmtFHaCWRZwEqnz2MHa)**
+
+## 플레이 하는 방법
+### 공통
+- 빨간색 사각형: 
+  - 먹어서 없애야 하는 오브젝트
+  - 일정한 간격으로 생성됨
+  - 화면 내에 빨간색 사각형의 개수가 **5개를 초과하면 게임 오버**
+  - 점수가 높아질수록 생성 주기가 짧아짐
+- 초록색 사각형
+  - 피해야 하는 오브젝트
+  - 일정 시간마다 소환되었다가 사라짐
+  - **닿게되면 체력을 1칸 잃음**
+  - 점수가 높아질수록 생성 주기는 짧아지고, 사각형의 이동 속도도 증가함
+- 노란색 사각형
+  - 피해야 하는 오브젝트
+  - 특정 점수대에 소환되며 플레이어를 천천히 따라다님
+  - 닿게되면 체력을 1칸 잃음
+- 회복 아이템
+  - (현재 버전 한정) 게임 플레이중 딱 한번만 소환됨
+  - 체력을 5칸 회복
+  - 기본 체력 5칸에서 누적됨 (최대 10칸까지 회복 가능)
+
+## '보통' 과 '어려운' 의 차이
+- 빨간색 사각형의 기본 속도가 더 빨라짐
+- 초록색 사각형이 **파란색**으로 바뀌고, 더 빨라짐
+- 노란색 사각형의 기본 속도가 더 빨라짐
+- 빨간색, 초록색 사각형의 기본 생성 주기가 더 빠름
+
+## TODO
+- 게임 클리어 화면 만들어서 구현 못한 점수대에 띄워서 게임 종료시키기
+- 회복 아이템 완성하기
+- 효과음 수정하기
+- 탄환 패턴 담당 클래스 좀 더 띵킹해서 최적화 하기
