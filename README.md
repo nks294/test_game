@@ -6,7 +6,7 @@ Based on RealTutsGML's "Java Programming: Let's Build a Game" tutorial
 **[ Youtube Playlist ](https://www.youtube.com/watch?v=1gir2R7G9ws&list=PLWms45O3n--6TvZmtFHaCWRZwEqnz2MHa)**
 
 ## 플레이 하는 방법
-### 조작키
+### 조작
 - 방향키(Arrow Key): 플레이어 조작
 - P: 게임 일시정지
 
