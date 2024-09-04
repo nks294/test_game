@@ -41,3 +41,4 @@ Based on RealTutsGML's "Java Programming: Let's Build a Game" tutorial
 - 회복 아이템 완성하기
 - 효과음 수정하기
 - 탄환 패턴 담당 클래스 좀 더 띵킹해서 최적화 하기
+- 플레이 기록 데이터베이스 OracleXE 에서 MariaDB로 옮기기
