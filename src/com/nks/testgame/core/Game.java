@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -57,7 +58,6 @@ public class Game extends Canvas implements Runnable {
 	};
 	
 	public Game() throws SQLException {
-
 		
 		// 플레이어 스킨을 위한 버퍼 이미지 로더 객체 생성
 		BufferedImageLoader loader = new BufferedImageLoader();

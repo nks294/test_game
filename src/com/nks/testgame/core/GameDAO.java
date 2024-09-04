@@ -1,5 +1,6 @@
 package com.nks.testgame.core;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,18 +16,19 @@ public class GameDAO {
 	
 	public ArrayList<ScoreData> scoreList;
 
-	// oracle XE 데이터베이스 연결 정보를 저장하기 위한 String 변수 생성
-	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = System.getenv("TESTGAME_DB_URL");
-	private String userid = System.getenv("TESTGAME_DB_USER");
-	private String passwd = System.getenv("TESTGAME_DB_PASS");
-	
 	private Connection con = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	
 	public GameDAO() {
 		try {
+      EnvLoader.loadEnv(".env");
+	    // oracle XE 데이터베이스 연결 정보를 저장하기 위한 String 변수 생성
+	    final String driver = "oracle.jdbc.driver.OracleDriver";
+	    final String url = System.getProperty("TESTGAME_DB_URL");
+	    final String userid = System.getProperty("TESTGAME_DB_USER");
+	    final String passwd = System.getProperty("TESTGAME_DB_PASS");
+
 			// 드라이버 메모리에 로딩
 			Class.forName(driver);
 			// 만들어둔 string 변수 사용해서 oraclexe에 연결
@@ -37,7 +39,9 @@ public class GameDAO {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			System.out.println("DB 연결 실패: " + e.getMessage());
-		}
+		} catch (IOException e) {
+      e.printStackTrace();
+    }
 	}
 
 	// 저장된 점수 데이터 불러오는 메소드
