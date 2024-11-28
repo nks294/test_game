@@ -1,30 +1,23 @@
-# Compiled class file
-.class
-.log
-.vscode
-.settings
-
-# BlueJ files
-.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp
-
-# Bin folder
-bin/
-/bin
-
-# env
+.gradle
+**/build/
+!src/**/build/
+**/bin/
 .env
 
-# Package Files #
-.war
-.nar
-.ear
-.zip
-.tar.gz
-.rar
+# Ignore Gradle GUI config
+gradle-app.setting
 
-# virtual machine crash logs, see httpwww.java.comendownloadhelperror_hotspot.xml
-hs_err_pid
-replay_pid
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Avoid ignore Gradle wrappper properties
+!gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+# Eclipse Gradle plugin generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath

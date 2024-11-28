@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation group: 'dev.mccue', name: 'jogg', version: '0.0.7'
+    implementation group: 'org.jcraft', name: 'jorbis', version: '0.0.17'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.1.2'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.3.1'
+}
+
+application {
+    mainClass = 'main.java.com.nks.testgame.core.Game'
+    // applicationDefaultJvmArgs = [
+    //     "-Djava.library.path=${projectDir}/build/natives",
+    //     "--add-opens", "java.base/java.security=ALL-UNNAMED",
+    //     "--add-opens", "java.base/java.lang=ALL-UNNAMED"
+    // ]
+}
+
+// tasks.register('copyNatives', Copy) {
+//     from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//     include '**/native/windows/**'
+//     into "$buildDir/natives"
+// }
+
+// processResources.dependsOn copyNatives
+
+tasks.register('fatJar', Jar) {
+    archiveClassifier.set('fat')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from sourceSets.main.output
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
