@@ -18,20 +18,7 @@ dependencies {
 
 application {
     mainClass = 'main.java.com.nks.testgame.core.Game'
-    // applicationDefaultJvmArgs = [
-    //     "-Djava.library.path=${projectDir}/build/natives",
-    //     "--add-opens", "java.base/java.security=ALL-UNNAMED",
-    //     "--add-opens", "java.base/java.lang=ALL-UNNAMED"
-    // ]
 }
-
-// tasks.register('copyNatives', Copy) {
-//     from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-//     include '**/native/windows/**'
-//     into "$buildDir/natives"
-// }
-
-// processResources.dependsOn copyNatives
 
 tasks.register('fatJar', Jar) {
     archiveClassifier.set('fat')
